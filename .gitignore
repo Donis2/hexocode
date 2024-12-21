@@ -1,0 +1,12 @@
+# 忽略部署文件夹
+.deploy_git/
+
+# 忽略 Node.js 模块
+node_modules/
+
+# 忽略 Hexo 生成的 public 文件夹
+public/
+
+# 忽略日志和数据库文件
+db.json
+*.log
