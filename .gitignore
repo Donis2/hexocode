@@ -10,3 +10,14 @@ public/
 # 忽略日志和数据库文件
 db.json
 *.log
+
+
+.DS_Store
+Thumbs.db
+.deploy*/
+.vscode/
+/.idea/
+.deploy_git*/
+.idea
+themes/butterfly/.git
+
