@@ -1,10 +1,12 @@
 ---
 abbrlink: e5a5d29d
-categories: []
+categories:
+- - 测试
 date: '2024-12-21T21:56:21+08:00'
-tags: []
+tags:
+- 测试
 title: hexo笔记
-updated: '2024-12-22T15:00:53.463+08:00'
+updated: '2024-12-22T15:01:56.813+08:00'
 ---
 测试看看
 
