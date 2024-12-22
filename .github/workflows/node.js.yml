@@ -48,8 +48,10 @@ jobs:
       # 初始化子模块
       - name: Initialize submodules
         run: |
-          git submodule update --init --recursive
-          echo "Submodules initialized successfully."
+         git submodule sync
+         git submodule update --init --recursive
+         echo "Submodules initialized successfully."
+
 
       # 清理 .deploy_git 文件夹
       - name: Remove .deploy_git folder
