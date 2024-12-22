@@ -116,7 +116,7 @@ disable_top_img: false
 default_top_img:
 
 # 索引页的横幅图像
-index_img: https://pic.imgdb.cn/item/666651b35e6d1bfa05825c23.jpg
+index_img: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
 
 # 存档页面的横幅图像
 archive_img: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758da.jpg
@@ -139,7 +139,7 @@ category_img: https://pic.imgdb.cn/item/666651985e6d1bfa05824944.jpg
 category_per_img:
 
 # 页脚的背景图
-footer_img: 
+footer_img: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
 
 # 网站背景
 # 可以设置为颜色或图片 url
