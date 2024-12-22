@@ -6,9 +6,11 @@ hexo的本地源码
 
 git init
 git add .
+git pull origin main
 git commit -m "init"
 git branch -M main
-git remote add origin https://github.com/用户名/私有仓库名.git
+git remote add origin https://github.com/Donis2/hexocode.git
+
 git push -u origin main
 
 ```
