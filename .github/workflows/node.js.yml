@@ -71,5 +71,5 @@ jobs:
           git config --global user.email "2561055937@qq.com"
           hexo deploy --debug  # 开启部署的调试模式，帮助调试部署时的问题
 
-      # 部署成功
+      # 部署成功 
       - run: echo "Deploy Successful!"
