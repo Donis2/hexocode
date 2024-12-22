@@ -10,16 +10,18 @@ on:
 
 jobs:
   blog:
-    timeout-minutes: 30
-    runs-on: ubuntu-latest
+    timeout-minutes: 30  # 设置 30 分钟超时
+    runs-on: ubuntu-latest  # 使用 Ubuntu 最新版本作为构建环境
+
     steps:
       # 检出代码
       - uses: actions/checkout@v2
-      
+        name: Checkout code
+
       # 设置 Node.js 版本
       - uses: actions/setup-node@v2
         with:
-          node-version: '16' # 替换为你的本地 Node.js 版本
+          node-version: '16'  # 替换为你本地使用的 Node.js 版本
 
       # 缓存 Node.js 依赖
       - name: Cache node_modules
@@ -30,7 +32,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
-      # 安装 Hexo 所需的依赖
+      # 安装 Hexo 依赖
       - name: Install dependencies
         run: |
           npm install
@@ -43,11 +45,23 @@ jobs:
           npm install -g hexo-cli --save
           echo "Hexo CLI installed successfully."
 
-      # 编译博客文件
+      # 初始化子模块
+      - name: Initialize submodules
+        run: |
+          git submodule update --init --recursive
+          echo "Submodules initialized successfully."
+
+      # 清理 .deploy_git 文件夹
+      - name: Remove .deploy_git folder
+        run: |
+          rm -rf .deploy_git
+          echo ".deploy_git folder cleared."
+
+      # 编译博客
       - name: Build Blog
         run: |
           hexo clean
-          hexo generate --debug
+          hexo generate --debug  # 开启调试模式以便排查问题
           echo "Blog build process completed."
 
       # 部署博客
@@ -55,6 +69,7 @@ jobs:
         run: |
           git config --global user.name "Donis2"
           git config --global user.email "2561055937@qq.com"
-          hexo deploy
+          hexo deploy --debug  # 开启部署的调试模式，帮助调试部署时的问题
 
+      # 部署成功 
       - run: echo "Deploy Successful!"
