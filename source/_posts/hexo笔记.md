@@ -1,9 +1,18 @@
 ---
-title: hexo笔记
 abbrlink: e5a5d29d
-date: 2024-12-21 21:56:21
+categories:
+- - 测试
+date: '2024-12-21T21:56:21+08:00'
 tags:
+- 测试
+title: hexo笔记
+updated: '2024-12-22T15:05:27.110+08:00'
 ---
+测试看看
+
+Qexo有用吗
+
+咋回事啊
 
 -------------------------------------------
 
@@ -40,9 +49,49 @@ aside:
 abcjs:
 noticeOutdate:
 ---
+```markdown
+---
+title:
+date:
+updated:
+tags:
+categories:
+keywords:
+description:
+top_img:
+comments:
+cover:
+toc:
+toc_number:
+toc_style_simple:
+copyright:
+copyright_author:
+copyright_author_href:
+copyright_url:
+copyright_info:
+mathjax:
+katex:
+aplayer:
+highlight_shrink:
+aside:
+abcjs:
+noticeOutdate:
+---
+
 ```
 
 
+| 寫法        | 解釋                             |
+| ----------- | -------------------------------- |
+| title       | 【必需】文章標題                 |
+| date        | 【必需】文章創建日期             |
+| updated     | 【可選】文章更新日期             |
+| tags        | 【可選】文章標籤                 |
+| categories  | 【可選】文章分類                 |
+| keywords    | 【可選】文章關鍵字               |
+| description | 【可選】文章描述                 |
+| top_img     | 【可選】文章頂部圖片             |
+| cover       | 【可選】文章縮略圖(如果沒有設置) |
 
 ### 参数解释
 
@@ -132,6 +181,27 @@ limit:
   type:
   value:
 ---
+```markdown
+---
+title:
+date:
+updated:
+type:
+comments:
+description:
+keywords:
+top_img:
+mathjax:
+katex:
+aside:
+aplayer:
+highlight_shrink:
+random:
+limit:
+  type:
+  value:
+---
+
 ```
 
 ### 参数解释
