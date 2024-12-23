@@ -1,3 +1,4 @@
 {
-    "commentTranslate.source": "Bing"
+    "commentTranslate.source": "Bing",
+    "git.ignoreLimitWarning": true
 }
