@@ -1,77 +1,84 @@
-name: 柳溪斋
+name: 自动部署
 
+# 当有改动推送到master分支时，启动Action
 on:
   push:
-    branches: [main, master]
-    paths:
-      - '*.json'
-      - '**.yml'
-      - '**/source/**'
+    branches:
+      - main #2020年10月后github新建仓库默认分支改为main，注意更改
+  release:
+    types:
+      - published
 
 jobs:
-  blog:
-    timeout-minutes: 30  # 设置 30 分钟超时
-    runs-on: ubuntu-latest  # 使用 Ubuntu 最新版本作为构建环境
-
+  deploy:
+    runs-on: ubuntu-latest # 任务所需容器，可选值：ubuntu-latest、windows-latest、macos-latest
     steps:
-      # 检出代码
-      - uses: actions/checkout@v2
-        name: Checkout code
-
-      # 设置 Node.js 版本
-      - uses: actions/setup-node@v2
+      - name: 检查分支
+        uses: actions/checkout@v2
         with:
-          node-version: '16'  # 替换为你本地使用的 Node.js 版本
+          ref: master
 
-      # 缓存 Node.js 依赖
-      - name: Cache node_modules
-        uses: actions/cache@v2
+      - name: 安装 Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+
+      - name: 安装 Hexo
+        run: |
+          export TZ='Asia/Shanghai'
+          npm install hexo-cli -g
+
+      - name: 缓存 Hexo
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-modules-
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-      # 安装 Hexo 依赖
-      - name: Install dependencies
+      - name: 安装依赖
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: |
-          npm install
-          npm install hexo-butterfly-tag-plugins-plus --save
-          echo "Dependencies installed successfully."
+          npm install gulp-cli -g #全局安装gulp
+          npm install --save
 
-      # 安装 Hexo-cli
-      - name: Install Hexo-cli
-        run: |
-          npm install -g hexo-cli --save
-          echo "Hexo CLI installed successfully."
-
-      # 初始化子模块
-      - name: Initialize submodules
-        run: |
-         git submodule sync
-         git submodule update --init --recursive
-         echo "Submodules initialized successfully."
-
-
-      # 清理 .deploy_git 文件夹
-      - name: Remove .deploy_git folder
-        run: |
-          rm -rf .deploy_git
-          echo ".deploy_git folder cleared."
-
-      # 编译博客
-      - name: Build Blog
+      - name: 生成静态文件
         run: |
           hexo clean
-          hexo generate --debug  # 开启调试模式以便排查问题
-          echo "Blog build process completed."
+          hexo generate
+          
 
-      # 部署博客
-      - name: Deploy Blog
+      # - name: 部署到Github
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     token: ${{ secrets.GITHUBTOKEN }}
+      #     repository-name: ningan123/ningan123.github.io
+      #     branch: main
+      #     folder: public
+      #     commit-message: "${{ github.event.head_commit.message }} $(date +\"%Z %Y-%m-%d %A %H:%M:%S\") Updated By Github Actions"
+
+
+      # - name: Build and Deploy
+      #   # 使用专门部署 Hexo 到 GitHub pages 的 action
+      #   uses: Tit1e/hexo-deploy-github-pages-action@master
+      #   env:
+      #     PERSONAL_TOKEN: ${{ secrets.GITHUBTOKEN }} # secret 名
+      #     PUBLISH_REPOSITORY: ningan123/ningan123.github.io # 公共仓库，格式：GitHub 用户名/仓库名
+      #     BRANCH: main # 分支，根据实际填写
+      #     PUBLISH_DIR: ./public # 部署 public 目录下的文件，hexo 一般都是这个目录，可根据实际调整
+
+      - name: deploy #此处master:main 指从本地的master分支提交到远程仓库的main分支(不是博客的分支写master即可)，若远程仓库没有对应分支则新建一个。如有其他需要，可以根据自己的需求更改。
         run: |
-          git config --global user.name "Donis2"
-          git config --global user.email "2561055937@qq.com"
-          hexo deploy --debug  # 开启部署的调试模式，帮助调试部署时的问题
-
-      # 部署成功 
-      - run: echo "Deploy Successful!"
+          export TZ='Asia/Shanghai'
+          cd ./public
+          git init
+          git config --global user.name '${{ secrets.GITHUBUSERNAME }}'
+          git config --global user.email '${{ secrets.GITHUBEMAIL }}'
+          git add .
+          git commit -m "${{ github.event.head_commit.message }} $(date +"%Z %Y-%m-%d %A %H:%M:%S") Updated By Github Actions"
+          git push --force --quiet "https://${{ secrets.GITHUBUSERNAME }}:${{ secrets.GITHUBTOKEN }}@github.com/${{ secrets.GITHUBUSERNAME }}/${{ secrets.GITHUBUSERNAME }}.github.io.git" master:main  # GitHub配置
