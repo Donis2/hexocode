@@ -246,20 +246,7 @@ limit:
 注意：内容不能有英文逗号，不然会出bug
 这段教程在这里：
 https://blog.leonus.cn/2022/butterflyTag.html
-<!-- 使用js是为了高亮代码，不必在意 -->
-<!-- 参数如下： 
-{% card 标题,链接,背景,评分,评价,图标,标签,宽度,高度 %}
-<!-- 示例如下： 
-{% card 诡秘之主,https://book.qidian.com/info/1010868264/,https://bookcover.yuewen.com/qdbimg/349573/1010868264/300,4.5,第一次接触这种西方文学小说，刚开始感觉看不懂，断断续续看了很多次。后来越看越觉好看，每次看甚至都需要查“文档”,fa-solid fa-book-open,小说 %}
-<!--
-<!-- 你也可以什么都不填，将会全部使用默认值，如下： -- >
-{% card %}
-<!-- 你也可以省略部分内容，如下： -- >
-{% card 诡秘之主,https://book.qidian.com/info/1010868264/,https://bookcover.yuewen.com/qdbimg/349573/1010868264/300 %}
-<!-- 
-位置在后面的参数不填的话可以直接省略，但是如果中间的不想填必须留空，如下：
 
-{% card 诡秘之主,,,,,fa-solid fa-book-open,小说 %}
 -->
 参数	描述	默认值
 标题	作品的名字	未知
