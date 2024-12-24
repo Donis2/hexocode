@@ -78,7 +78,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: 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
-          repository-name: git@github.com:Donis2/donis2.github.io.git
+          repository-name: Donis2/donis2.github.io
           branch: main
           folder: public
           commit-message: "${{ github.event.head_commit.message }} Updated By Github Actions"
