@@ -98,7 +98,6 @@ jobs:
 
       - name: 部署博客
         run: 
-          cd -
           git config --global user.name "Donis2"
           git config --global user.email "2561055937@qq.com"
           hexo d
