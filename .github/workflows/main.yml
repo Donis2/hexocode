@@ -77,7 +77,7 @@ jobs:
       - name: 部署到GitHub
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: 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
+          token: ${{ secrets.GH_PAT }} 
           repository-name: Donis2/donis2.github.io
           branch: main
           folder: public
