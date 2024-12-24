@@ -65,12 +65,6 @@ jobs:
           hexo generate --debug
           echo "Blog build process completed."
 
-
-
-
-
-
-
       # - name: 部署到Github
       #   with:
       #     token: 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
@@ -81,36 +75,34 @@ jobs:
 
 
 
-      # # 部署博客
-      # - name: Deploy Blog
-      #   env:
-      #    DEPLOY_TOKEN: ${{ secrets.GH_TOKEN }}   # 从 GitHub Secrets 读取 Token
-      #   run: |
-      #    git config --global user.name "Donis2"
-      #    git config --global user.email "2561055937@qq.com"
-      #    npx hexo deploy --debug
+      # - name: 部署博客
+      #   run: 
+      #     git config --global user.name "Donis2";
+      #     git config --global user.email "2561055937@qq.com";
+      #     hexo d;
+      #     git config --global init.defaultBranch main;
+      #     git init;
+      #     git add .;
+      #     git pull origin main;
+      #     git branch -M main;
+      #     git commit -m "Update";
+      #     git remote add origin https://github.com/Donis2/hexocode.git;
+      #     git push -u origin main;
 
 
-      # git config user.name "${{secrets.GIT_NAME}}"
-      # git config user.email "${{secrets.GIT_EMAIL}}"
+
+      # 部署博客
+      - name: Deploy Blog
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} # 从 Secrets 中获取 GitHub Token
+        run: |
+          git config --global user.name "Donis2"
+          git config --global user.email "2561055937@qq.com"
+          hexo deploy --debug
 
 
-
-      - name: 部署博客
-        run: 
-          git config --global user.name "Donis2";
-          git config --global user.email "2561055937@qq.com";
-          hexo d;
-          git config --global init.defaultBranch main;
-          git init;
-          git add .;
-          git pull origin main;
-          git branch -M main;
-          git commit -m "Update";
-          git remote add origin https://github.com/Donis2/hexocode.git;
-          git push -u origin main;
-
-
+      
+       
      
 
       
