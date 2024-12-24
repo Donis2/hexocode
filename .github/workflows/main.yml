@@ -94,7 +94,7 @@ jobs:
       # 部署博客
       - name: Deploy Blog
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }} # 从 Secrets 中获取 GitHub Token
+          GH_TOKEN: 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
         run: |
           git config --global user.name "Donis2"
           git config --global user.email "2561055937@qq.com"
