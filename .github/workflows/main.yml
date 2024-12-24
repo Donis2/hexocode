@@ -1,10 +1,10 @@
 name: 自动部署
 
-# 当有改动推送到master分支时，启动Action
+# 当有改动推送到main分支或发布新版本时，启动Action
 on:
   push:
     branches:
-      - main #2020年10月后github新建仓库默认分支改为main，注意更改
+      - main # 确保这里与远程仓库的默认分支名称匹配
   release:
     types:
       - published
@@ -28,14 +28,12 @@ jobs:
           export TZ='Asia/Shanghai'
           npm install hexo-cli -g
 
-
-       # 初始化子模块
+      # 初始化子模块
       - name: Initialize submodules
         run: |
           git submodule sync
           git submodule update --init --recursive
           echo "Submodules initialized successfully."
-
 
       - name: 缓存 Hexo
         id: cache-npm
@@ -53,22 +51,26 @@ jobs:
       - name: 安装依赖
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: |
-          npm install gulp-cli -g #全局安装gulp
+          npm install gulp-cli -g # 全局安装gulp
           npm install --save
 
       - name: 生成静态文件
         run: |
           hexo clean
           hexo generate
-          
 
-      - name: deploy #此处master:main 指从本地的master分支提交到远程仓库的main分支(不是博客的分支写master即可)，若远程仓库没有对应分支则新建一个。如有其他需要，可以根据自己的需求更改。
+      - name: 部署到 GitHub Pages
+        env:
+          GH_REF: ${{ secrets.GH_REF }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIT_NAME: ${{ secrets.GIT_NAME }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         run: |
-         export TZ='Asia/Shanghai'
-         cd ./public
-         git init
-         git config --global user.name '${{ secrets.GIT_NAME }}'
-         git config --global user.email '${{ secrets.GIT_EMAIL }}'
-         git add .
-         git commit -m "${{ github.event.head_commit.message }} $(date +"%Z %Y-%m-%d %A %H:%M:%S") Updated By Github Actions"
-         git push --force --quiet "https://${{ secrets.GH_TOKEN }}@${{ secrets.GH_REF }}" main:main
+          export TZ='Asia/Shanghai'
+          cd ./public
+          git init
+          git config --global user.name '${{ env.GIT_NAME }}'
+          git config --global user.email '${{ env.GIT_EMAIL }}'
+          git add .
+          git commit -m "${{ github.event.head_commit.message }} $(date +"%Z %Y-%m-%d %A %H:%M:%S") Updated By Github Actions"
+          git push --force --quiet "https://${{ env.GH_TOKEN }}@${{ env.GH_REF }}" HEAD:main
