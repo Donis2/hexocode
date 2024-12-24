@@ -93,22 +93,17 @@ jobs:
 
 
       - name: 部署博客
-        env:
-           GIT_NAME: ${{ secrets.GIT_NAME }}
-           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-           GH_REF: ${{ secrets.GH_REF }}
-        run: |
-           git config --global user.name "${GIT_NAME}"
-           git config --global user.email "${GIT_EMAIL}"
-           npx hexo d --debug
+        run: 
+          hexo clean && hexo g
+          cd ./public
+          git init
+          git config user.name "${{secrets.GIT_NAME}}"
+          git config user.email "${{secrets.GIT_EMAIL}}"
+          git add .
+          git commit -m "Update"
+          git push --force --quiet "https://${{secrets.GH_TOKEN}}@${{secrets.GH_REF}}" main:main
+         # git push --force --quiet "https://${{secrets.CD_TOKEN}}@${{secrets.CD_REF}}" main:main
 
-           cd ./public
-           git init
-           git add .
-           git commit -m "Update"
-           git branch -M main
-           git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" main
 
 
 
