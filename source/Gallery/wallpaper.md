@@ -1,10 +1,10 @@
 ---
 title: 壁纸
-date: 2021-09-11 20:25:14
+date: 2024-12-21 19:53
 aside: false
 ---
 
-&#123% gallery %&#125
+{% gallery %}
 ![](01/1.jpg)
 ![](01/2.jpg)
 ![](01/3.jpg)
@@ -13,5 +13,6 @@ aside: false
 ![](01/6.jpg)
 ![](01/7.jpg)
 ![](01/8.jpg)
-&#123% endgallery %&#125
+![](01/9.jpg)
+{% endgallery %}
 
