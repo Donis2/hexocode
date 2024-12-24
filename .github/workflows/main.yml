@@ -73,4 +73,4 @@ jobs:
           git config --global user.email '${{ env.GIT_EMAIL }}'
           git add .
           git commit -m "${{ github.event.head_commit.message }} $(date +"%Z %Y-%m-%d %A %H:%M:%S") Updated By Github Actions"
-          git push --force --quiet "https://${{ env.GH_TOKEN }}@${{ env.GH_REF }}" HEAD:main
+          git push --force --quiet "https://${{ env.GH_TOKEN }}@${{ env.GH_REF }}" main:main
