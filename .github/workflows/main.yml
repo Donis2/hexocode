@@ -98,17 +98,17 @@ jobs:
 
       - name: 部署博客
         run: 
-          git config --global user.name "Donis2"
-          git config --global user.email "2561055937@qq.com"
-          hexo d
-          git config --global init.defaultBranch main
-          git init
-          git add .
-          git pull origin main
-          git branch -M main
-          git commit -m "Update"
-          git remote add origin https://github.com/Donis2/hexocode.git
-          git push -u origin main
+          git config --global user.name "Donis2";
+          git config --global user.email "2561055937@qq.com";
+          hexo d;
+          git config --global init.defaultBranch main;
+          git init;
+          git add .;
+          git pull origin main;
+          git branch -M main;
+          git commit -m "Update";
+          git remote add origin https://github.com/Donis2/hexocode.git;
+          git push -u origin main;
 
 
      
