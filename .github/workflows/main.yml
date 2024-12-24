@@ -69,8 +69,8 @@ jobs:
           export TZ='Asia/Shanghai'
           cd ./public
           git init
-          git config --global user.name '${{ env.GIT_NAME }}'
-          git config --global user.email '${{ env.GIT_EMAIL }}'
+          git config --global user.name '${{ secrets.GIT_NAME }}'
+          git config --global user.email '${{ secrets.GIT_EMAIL }}'
           git add .
           git commit -m "${{ github.event.head_commit.message }} $(date +"%Z %Y-%m-%d %A %H:%M:%S") Updated By Github Actions"
-          git push --force --quiet "https://${{ env.GH_TOKEN }}@${{ env.GH_REF }}" main:main
+          git push --force --quiet "https://${{ secrets.GH_TOKEN }}@${{ secrets.GH_REF }}" main:main
