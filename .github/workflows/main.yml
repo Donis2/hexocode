@@ -95,6 +95,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          export TZ='Asia/Shanghai'
           git config --global user.name "Donis2"
           git config --global user.email "2561055937@qq.com"
           hexo deploy --debug
