@@ -60,6 +60,8 @@ jobs:
 
       # 编译博客
       - name: Build Blog
+        env:
+          LANG: C.UTF-8
         run: |
           git config --global user.name "Donis2"
           git config --global user.email "2561055937@qq.com"
@@ -100,6 +102,12 @@ jobs:
           export TZ='Asia/Shanghai'
           hexo deploy --debug
 
+
+      - name: Debug environment variables
+        run: |
+            echo "PATH=$PATH"
+            echo "PWD=$PWD"
+            printenv | sort
 
       
       # 部署成功
