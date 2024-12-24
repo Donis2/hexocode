@@ -78,8 +78,6 @@ jobs:
         env:
          DEPLOY_TOKEN: ${{ secrets.GH_TOKEN }}  # 从 GitHub Secrets 读取 Token
         run: |
-         git config --global user.name "Donis2"
-         git config --global user.email "2561055937@qq.com"
          npx hexo deploy --debug
          token: ${{ secrets.GH_TOKEN }} 
          nrepository-name: Donis2/donis2.github.io
