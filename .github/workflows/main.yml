@@ -95,16 +95,15 @@ jobs:
         run: 
           npx hexo deploy --debug
           cd ./public
-          git init
           git config user.name "${{secrets.GIT_NAME}}"
           git config user.email "${{secrets.GIT_EMAIL}}"
+          git init
           git add .
+          git pull origin main
           git commit -m "Update"
+          git branch -M main
           git push --force --quiet "https://${{secrets.GH_TOKEN}}@${{secrets.GH_REF}}"
-          # git push --force --quiet "https://${{secrets.CD_TOKEN}}@${{secrets.CD_REF}}"
-
-
-
+        
 
 
 
