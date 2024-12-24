@@ -100,9 +100,9 @@ jobs:
         run: 
           hexo d
           cd -
-          git config user.name "Donis2"
-          git config user.email "2561055937@qq.com"
-          git config init.defaultBranch main
+          git config --global user.name "Donis2"
+          git config --global user.email "2561055937@qq.com"
+          git config --global init.defaultBranch main
           git init
           git add .
           git pull origin main
