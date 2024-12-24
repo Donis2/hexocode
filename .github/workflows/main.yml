@@ -91,19 +91,24 @@ jobs:
       #    npx hexo deploy --debug
 
 
+
       - name: 部署博客
-        run: 
-          npx hexo deploy --debug
-          cd ./public
-          git config user.name "${{secrets.GIT_NAME}}"
-          git config user.email "${{secrets.GIT_EMAIL}}"
-          git init
-          git add .
-          git pull origin main
-          git commit -m "Update"
-          git branch -M main
-          git push --force --quiet "https://${{secrets.GH_TOKEN}}@${{secrets.GH_REF}}"
-        
+        env:
+           GIT_NAME: ${{ secrets.GIT_NAME }}
+           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+           GH_REF: ${{ secrets.GH_REF }}
+        run: |
+           git config --global user.name "${GIT_NAME}"
+           git config --global user.email "${GIT_EMAIL}"
+           npx hexo d --debug
+
+           cd ./public
+           git init
+           git add .
+           git commit -m "Update"
+           git branch -M main
+           git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" main
 
 
 
