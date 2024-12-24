@@ -90,7 +90,7 @@ jobs:
       # 部署博客
       - name: Deploy Blog
         env:
-         DEPLOY_TOKEN: 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 #${{ secrets.GH_TOKEN }}   从 GitHub Secrets 读取 Token
+         DEPLOY_TOKEN: ${{ secrets.GH_TOKEN }}   # 从 GitHub Secrets 读取 Token
         run: |
          git config --global user.name "Donis2"
          git config --global user.email "2561055937@qq.com"
