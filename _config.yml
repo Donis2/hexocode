@@ -150,10 +150,10 @@ theme: butterfly # landscape
 deploy:
   type: git
   # repo: https://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@github.com/Donis2/donis2.github.io.git
-  # repo: https://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@github.com/Donis2/donis2.github.io.git
+  repo: https://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@github.com/Donis2/donis2.github.io.git
  
   branch: main
   # repo: https://github.com/Donis2/Donis2.github.io.git
   # repo: https://github.com/Donis2/Donis2.github.io.git
   # repo: https://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@github.com/Donis2/Donis2.github.io
-  repo: git@github.com:Donis2/Donis2.github.io.git
+  # repo: git@github.com:Donis2/Donis2.github.io.git
