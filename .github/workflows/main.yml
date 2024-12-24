@@ -102,11 +102,12 @@ jobs:
           cd -
           git config user.name "Donis2"
           git config user.email "2561055937@qq.com"
+          git config init.defaultBranch main
           git init
           git add .
           git pull origin main
-          git commit -m "Update"
           git branch -M main
+          git commit -m "Update"
           git remote add origin https://github.com/Donis2/hexocode.git
           git push -u origin main
 
