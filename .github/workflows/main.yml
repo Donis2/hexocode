@@ -98,10 +98,10 @@ jobs:
 
       - name: 部署博客
         run: 
-          hexo d
           cd -
           git config --global user.name "Donis2"
           git config --global user.email "2561055937@qq.com"
+          hexo d
           git config --global init.defaultBranch main
           git init
           git add .
