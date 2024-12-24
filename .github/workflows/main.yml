@@ -66,13 +66,24 @@ jobs:
           echo "Blog build process completed."
 
       # 部署博客
-      - name: Deploy Blog
-        env:
-          DEPLOY_TOKEN: ${{ secrets.GH_TOKEN }}  # 从 GitHub Secrets 读取 Token
-        run: |
-          git config --global user.name "Donis2"
-          git config --global user.email "2561055937@qq.com"
-          npx hexo deploy --debug
+      #- name: Deploy Blog
+      #  env:
+      #   DEPLOY_TOKEN: ${{ secrets.GH_TOKEN }}  # 从 GitHub Secrets 读取 Token
+      #  run: |
+      #   git config --global user.name "Donis2"
+      #   git config --global user.email "2561055937@qq.com"
+      #   npx hexo deploy --debug
+
+      - name: 部署到GitHub
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: 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
+          repository-name: donis2.github.io
+          branch: main
+          folder: public
+          commit-message: "${{ github.event.head_commit.message }} Updated By Github Actions"
+
+
 
       # 部署成功
       - run: echo "Deploy Successful!"
