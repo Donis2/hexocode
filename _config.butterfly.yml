@@ -208,7 +208,7 @@ subtitle:
   effect: true # 是否启用打字机效果
   # 自定义 typed.js
   # https://github.com/mattboldt/typed.js/#customization
-  typed_option:
+  typed_option: 1
   # 来源 - 调用第三方服务 API
   # 会先显示源，再显示 sub 的内容
   # 选择：false/1/2/3
@@ -265,20 +265,20 @@ reward:
   enable: false
   text:
   QR_code:
-    # - img: /img/wechat.jpg
-    #   link:
-    #   text: wechat
-    # - img: /img/alipay.jpg
-    #   link:
-    #   text: alipay
+    - img: /img/wechat.png
+      link:
+      text: wechat
+    - img: /img/alipay.png
+      link:
+      text: alipay
 
 # 帖子编辑
 # 轻松在线浏览和编辑博客源代码。
 post_edit:
-  enable: false
+  enable: true
   # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
-  url:
+  url: https://github.com/Donis2/hexocode/tree/main/source
 
 # 相关文章
 related_post:
@@ -340,7 +340,7 @@ aside:
       enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/xxxxxx
+      link: https://github.com/Donis2
   card_announcement:
     enable: true
     content: This is my Blog
@@ -405,13 +405,13 @@ aside:
     runtime_date:
 
 # --------------------------------------
-# Bottom right button
+# 右下按钮
 # --------------------------------------
 
-# The distance between the bottom right button and the bottom (default unit: px)
+# 右下角按钮与底部之间的距离（默认单位：px）
 rightside_bottom:
 
-# Conversion between Traditional and Simplified Chinese
+# 繁体中文与简体中文之间的转换
 translate:
   enable: false
   # The text of a button
@@ -431,23 +431,23 @@ readmode: true
 # Dark Mode
 darkmode:
   enable: true
-  # Toggle Button to switch dark/light mode
+  # 切换按钮以切换深色/浅色模式
   button: true
-  # Switch dark/light mode automatically
-  # autoChangeMode: 1  Following System Settings, if the system doesn't support dark mode, it will switch dark mode between 6 pm to 6 am
-  # autoChangeMode: 2  Switch dark mode between 6 pm to 6 am
+  # 自动切换深色/浅色模式
+  # autoChangeMode： 1 按照系统设置，如果系统不支持暗模式，它会在下午 6 点到早上 6 点之间切换暗模式
+  # autoChangeMode： 2 在下午 6 点到早上 6 点之间切换暗模式
   # autoChangeMode: false
   autoChangeMode: false
-  # Set the light mode time. The value is between 0 and 24. If not set, the default value is 6 and 18
-  start:
-  end:
+  # 设置灯光模式时间。该值介于 0 和 24 之间。如果未设置，则默认值为 6 和 18
+  start: 6
+  end: 18
 
-# Show scroll percent in scroll-to-top button
+# 在滚动到顶部按钮中显示滚动百分比
 rightside_scroll_percent: false
 
-# Don't modify the following settings unless you know how they work
-# Choose: readmode,translate,darkmode,hideAside,toc,chat,comment
-# Don't repeat the same value
+# 除非你知道它们是如何工作的，否则不要修改以下设置
+# 选择：readmode，translate，darkmode，hideAside，toc，chat，comment
+# 不要重复相同的值
 rightside_item_order:
   enable: false
   # Default: readmode,translate,darkmode,hideAside
@@ -460,16 +460,16 @@ rightside_item_order:
 # --------------------------------------
 
 anchor:
-  # When you scroll, the URL will update according to header id.
+  # 当您滚动时，URL 将根据标头 ID 进行更新。
   auto_update: false
-  # Click the headline to scroll and update the anchor
+  # 点击标题可滚动并更新锚点
   click_to_scroll: false
 
 photofigcaption: false
 
 copy:
   enable: true
-  # Add the copyright information after copied content
+  # 在复制内容后添加版权信息
   copyright:
     enable: false
     limit_count: 150
@@ -497,9 +497,9 @@ busuanzi:
 # Math
 # --------------------------------------
 
-# About the per_page
-# if you set it to true, it will load mathjax/katex script in each page
-# if you set it to false, it will load mathjax/katex script according to your setting (add the 'mathjax: true' or 'katex: true' in page's front-matter)
+# 关于per_page
+# 如果设置为 true，它将在每个页面中加载 MathJAX/Katex 脚本
+# 如果你把它设置为 false，它将根据你的设置加载 MathJax/Katex 脚本（在页面的 front-matter 中添加 'mathjax： true' 或 'katex： true'）
 math:
   # Choose: mathjax, katex
   # Leave it empty if you don't need math
@@ -508,14 +508,14 @@ math:
   hide_scrollbar: false
 
   mathjax:
-    # Enable the contextual menu
+    # 启用上下文菜单
     enableMenu: true
-    # Choose: all / ams / none, This controls whether equations are numbered and how
+    # Choose: all / ams / none, 这控制是否对方程进行编号以及如何编号
     tags: none
 
   katex:
-    # Enable the copy KaTeX formula
-    copy_tex: false
+    # 启用复制 KaTeX 公式
+    copy_tex: true
 
 # --------------------------------------
 # Search
@@ -523,7 +523,7 @@ math:
 
 search:
   # Choose: algolia_search / local_search / docsearch
-  # leave it empty if you don't need search
+  # 如果您不需要搜索，请将其留空
   use:
   placeholder:
 
@@ -556,7 +556,7 @@ search:
 
 share:
   # Choose: sharejs / addtoany
-  # Leave it empty if you don't need share
+  # 如果您不需要 share，请将其留空
   use: sharejs
 
   # Share.js
@@ -590,6 +590,17 @@ comments:
   count: false
   # 在主页中显示评论计数
   card_post_count: false
+
+
+# Waline - 一个简单的评论系统，带有来自 Valine 的后端支持分支
+# https://waline.js.org/
+waline:
+  serverURL: https://hexo-comments-wheat.vercel.app
+  bg:
+  # 使用 Waline pageview count 作为页面浏览计数
+  pageview: true
+  option:
+
 
 # Disqus
 # https://disqus.com/
@@ -633,14 +644,7 @@ valine:
   visitor: false
   option:
 
-# Waline - 一个简单的评论系统，带有来自 Valine 的后端支持分支
-# https://waline.js.org/
-waline:
-  serverURL: https://hexo-comments-wheat.vercel.app
-  bg:
-  # Use Waline pageview count as the page view count
-  pageview: false
-  option:
+
 
 # Utterances
 # https://utteranc.es/
@@ -790,11 +794,11 @@ site_verification:
   #   content: xxxxxxx
 
 # --------------------------------------
-# Beautify / Effect
+# 美化 / 效果
 # --------------------------------------
 
-# Theme color for customize
-# Notice: color value must in double quotes like "#000" or may cause error!
+# 用于自定义的主题颜色
+# 注意：颜色值必须像 “#000” 这样的双引号，否则可能会导致错误！
 
 # theme_color:
 #   enable: true
@@ -814,9 +818,9 @@ site_verification:
 #   meta_theme_color_light: "ffffff"
 #   meta_theme_color_dark: "#0d0d0d"
 
-# The user interface setting of category and tag page
-# Choose: index - same as Homepage UI / default - same as archives UI
-# leave it empty or index
+# 分类和标签页面的用户界面设置
+# 选择：索引 - 与主页 UI 相同 / 默认 - 与档案 UI 相同
+# 将其留空或索引
 category_ui:
 tag_ui:
 

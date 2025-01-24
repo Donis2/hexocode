@@ -1,6 +1,18 @@
 # hexocode
 hexo的本地源码
 
+
+
+
+git config --global user.name donis2
+git config --global user.email 2561055937@qq.com
+
+
+git config --global user.name liuxizhaizhu
+git config --global user.email 3277006245@qq.com
+
+
+
 ```git
 #上传整个源码
 
