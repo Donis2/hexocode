@@ -101,7 +101,7 @@ code_blocks:
   theme: light
   macStyle: true
   # 码块高度限制（单位：px）
-  height_limit: 50 # 可配置代码高度限制，超出的部分会隐藏，并显示展开按钮。
+  height_limit: 200 # 可配置代码高度限制，超出的部分会隐藏，并显示展开按钮。
   word_wrap: false # 自动换行
 
   # 工具栏
