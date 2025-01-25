@@ -6,7 +6,6 @@ type:
 comments:
 description:
 keywords:
-top_img:
 mathjax:
 katex:
 aside:
@@ -16,6 +15,8 @@ random:
 limit:
   type:
   value:
+cover: https://pic.3gbizhi.com/uploadmark/20250115/f76e34ca93c3acbb899f991fe0bd2064.jpg
+top_img: https://pic.3gbizhi.com/uploadmark/20250115/f76e34ca93c3acbb899f991fe0bd2064.jpg
 ---
 
 

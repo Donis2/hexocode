@@ -6,7 +6,6 @@ type:
 comments: 
 description:
 keywords: 柳溪书架
-top_img: https://pic1.imgdb.cn/item/666651c75e6d1bfa05826dd0.jpg
 mathjax:
 katex:
 aside:
@@ -16,4 +15,6 @@ random:
 limit:
   type: num
   value: 20
+cover:
+top_img: https://pic1.imgdb.cn/item/666651c75e6d1bfa05826dd0.jpg
 ---

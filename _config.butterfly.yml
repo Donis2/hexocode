@@ -134,17 +134,17 @@ avatar:
 disable_top_img: false
 
 # 如果页面的 top_img未设置，则会显示 default_top_img
-default_top_img:
+default_top_img: https://pic.3gbizhi.com/uploadmark/20241024/1aa9e4dd927131ef0da441c2683ed299.jpg
 
 # 索引页的 top_img
 index_img: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
 
 # 存档页面的 top_img
-archive_img: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758da.jpg
+archive_img: https://pic.3gbizhi.com/uploadmark/20241021/82f868da511af2c91917672a8f2ea9aa.jpeg
 
 
 # 注意：tag page，而不是 tags page
-tag_img: https://pic.imgdb.cn/item/666651995e6d1bfa05824957.jpg
+tag_img: https://pic.3gbizhi.com/uploadmark/20241016/e66f0292ae83bd49b4ed30c68da47451.jpg
 
 # 标签页面的 top_img ，可设置每个标签的 top_img
 # 格式：
@@ -152,7 +152,7 @@ tag_img: https://pic.imgdb.cn/item/666651995e6d1bfa05824957.jpg
 tag_per_img: https://pic1.imgdb.cn/item/666651b35e6d1bfa05825c3b.png
 
 # 注意：分类页面，而不是分类(复数)页面
-category_img: https://pic.imgdb.cn/item/666651985e6d1bfa05824944.jpg
+category_img: https://pic.3gbizhi.com/uploadmark/20241016/c14fccc864fe5ed45e178a6ab48b9e04.jpg
 
 # 分类页面的 banner 图片，可以为每个分类设置 banner 图片
 # 格式：
@@ -165,6 +165,7 @@ footer_img: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
 # 网站背景
 # 可以设置为颜色或图片 url
 background: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
+
 
 cover:
   # 是否禁用封面

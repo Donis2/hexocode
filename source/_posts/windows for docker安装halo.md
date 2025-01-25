@@ -6,9 +6,9 @@ tags: 'docker,halo'
 categories: 教程
 keywords: 'docker,halo,windows上使用halo,本地搭建halo'
 description: windows上本地搭建halo
-top_img: 'https://www.halo.run/upload/2022/03/logo.svg'
+top_img: 'https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png'
 comments: true
-cover: 'https://www.halo.run/upload/2022/03/logo.svg'
+cover: 'https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png'
 copyright_author: 柳溪斋主
 copyright_author_href: 'https://donis2.github.io'
 copyright_url: 'https://donis2.github.io/posts/a7e5c6ee.html'
