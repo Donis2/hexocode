@@ -31,7 +31,7 @@ jobs:
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
-
+          
       # 安装依赖
       - name: Install dependencies
         run: |
@@ -63,41 +63,20 @@ jobs:
         run: |
           hexo clean
           hexo generate --debug
+          git config --global core.quotepath false   
           echo "Blog build process completed."
 
-      # - name: 部署到Github
-      #   with:
-      #     token: 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
-      #     repository-name: Donis2/donis2.github.io
-      #     branch: main
-      #     folder: public
-      #     commit-message: "${{ github.event.head_commit.message }} Updated By Github Actions"
-
-
-
-      # - name: 部署博客
-      #   run: 
-      #     git config --global user.name "Donis2";
-      #     git config --global user.email "2561055937@qq.com";
-      #     hexo d;
-      #     git config --global init.defaultBranch main;
-      #     git init;
-      #     git add .;
-      #     git pull origin main;
-      #     git branch -M main;
-      #     git commit -m "Update";
-      #     git remote add origin https://github.com/Donis2/hexocode.git;
-      #     git push -u origin main;
-
-
-
+      # 部署博客
       - name: Deploy Blog
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.name "Donis2"
           git config --global user.email "2561055937@qq.com"
+          sed -i "s~https://github.com~https://${GH_TOKEN}@github.com~" _config.yml
           hexo deploy --debug
+
+
 
       
       # 部署成功
