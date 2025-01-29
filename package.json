@@ -31,7 +31,7 @@
     "hexo-theme-solitude": "^3.0.5",
     "hexo-util": "^3.3.0",
     "hexo-wordcount": "^6.0.1",
-    "moment-timezone": "^0.5.46",
+    "moment-timezone": "^0.5.47",
     "pjax": "^0.2.8"
   }
 }
