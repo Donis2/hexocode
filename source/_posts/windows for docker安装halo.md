@@ -55,7 +55,6 @@ noticeOutdate:
 
 ```cmd
 wsl --install
-
 ```
 
 运行 WSL 并默认安装 Linux 的 Ubuntu 发行版所需的功能。
@@ -65,7 +64,6 @@ wsl --install
 
 ```cmd
 wsl --update
-
 ```
 
 ### 设置默认WSL版本为WSL2
@@ -73,7 +71,6 @@ wsl --update
 
 ```cmd
 wsl --set-default-version 2
-
 ```
 
 ### 把子系统转移到D盘
@@ -84,7 +81,6 @@ wsl -l -v        #查看所有安装过的子系统
 wsl --export <上一条命令查看到的子系统名字，默认是Ubuntu> D:/<要改的路径>/取个名字.tar   #（注意要写.tar后缀，这是在导出安装了的子系统）
 wsl --unregister <子系统名字>   #删除原来在c盘的子系统
 wsl --import <子系统子系统名> D:\子系统在D要存放的位置\ D:\<要改的路径>\刚刚取的名字.tar --version 2
-
 ```
 
 迁移完成
@@ -142,7 +138,6 @@ start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install 
     "https://hub.rat.dev"
   ]
 }
-
 ```
 
 你也可以网上找其他的镜像源
@@ -170,7 +165,6 @@ start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install 
 
 ```cmd
 docker run -it -d --name halo -p 8090:8090 -v d:/Docker/Halo:/root/.halo2 -e JVM_OPTS="-Xmx256m -Xms256m" registry.fit2cloud.com/halo/halo:2.20
-
 ```
 
 这个命令就是让’.halo‘文件创建到‘d:/Docker/Halo’文件夹下面。效果相同。

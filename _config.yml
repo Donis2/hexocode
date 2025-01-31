@@ -33,9 +33,48 @@ abbrlink:
      enable: true  #true(default)
      depth:        #3(default)
      over_write: false 
-  auto_title: false #enable auto title, it can auto fill the title by path
-  auto_date: false #enable auto date, it can auto fill the date by time today
-  force: false #enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink.
+  auto_title: false #启用自动标题，它可以按路径自动填充标题
+  auto_date: false #启用自动日期，它可以按今天的时间自动填充日期
+  force: false #开启强制模式，在此模式下，插件将忽略缓存，并计算每个帖子的 abbrlink，即使它已经有 abbrlink。
+
+
+
+
+
+aplayer:
+  meting: true
+  asset_inject: false
+
+plugins:
+  - hexo-algoliasearch # 全文搜索
+
+
+
+
+algolia:
+  appId: "Z7A3XW4R2I"
+  apiKey: "12db1ad54372045549ef465881c17e743"
+  adminApiKey: "40321c7c207e7f73b63a19aa24c4761b"
+  chunkSize: 5000
+  indexName: "my-hexo-blog"
+  fields:
+    - content:strip:truncate,0,500
+    - excerpt:strip
+    - gallery
+    - permalink
+    - photos
+    - slug
+    - tags
+    - title
+
+
+
+
+
+
+
+
+
 
 
 

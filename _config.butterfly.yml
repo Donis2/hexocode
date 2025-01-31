@@ -20,18 +20,22 @@ nav:
 
 menu:
   首页: / || fas fa-home
-  时间轴: /archives/ || fas fa-archive
-  标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
+  时间轴: /timeline/ || fas fa-hourglass-half
+  文章||fas fa-list:
+    归档: /archives/ || fas fa-archive
+    标签: /wenzhang/tags/ || fas fa-tags
+    分类: /wenzhang/categories/ || fas fa-folder-open
 
   柳溪书院||fas fa-book:
-    照片: /Gallery/ || fas fa-images
-    书架: /bookshelf/ || fas fa-book-open
- 
+    照片: /liuxishuyuan/Gallery/ || fas fa-images
+    书架: /liuxishuyuan/bookshelf/ || fas fa-book-open
+    说说: /shuoshuo/ || fas fa-comment-dots
+
   清单||fa fa-heartbeat:
-    追番: /bilibili/ || iconfont icon-bilibili
-    音乐: /music/ || fas fa-music
-    电影: /movies/ || fas fa-video
+    追番: /list/bilibili/ || fab fa-bilibili
+    音乐: /list/music/ || fas fa-music
+    电影: /list/movies/ || fas fa-video
+
   友人帐: /link/ || fas fa-address-book
   关于: /about/ || fas fa-user-circle
 
@@ -70,6 +74,19 @@ inject:
     # 引入多个文件就直接往下复制一行改一下文件名即可，如下：
     # - <script src="/js/script1.js?1"></script>
     # - <script src="/js/script2.js?1"></script>
+
+    # 全局音乐教程：https://iknew.cn/2024/07/01/hexo-butterfly%E4%BD%BF%E7%94%A8hexo-tag-aplayer-%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/
+    - <div class="aplayer no-destroy" data-id="4939918079" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" data-lrcType="-1"> </div>
+
+    # 这个应该不能像下面分开写，只能写成一行，下面分开写是方便看参数
+    # - <div class="aplayer no-destroy" 
+    #   data-id="4939918079" # 歌单id
+    #   data-server="netease" # 歌单来源平台
+    #   data-type="playlist" # 歌单类型
+    #   data-fixed="true" 
+    #   data-autoplay="true" 
+    #   data-lrcType="-1"> 
+    #   </div>
 
 
 
@@ -217,7 +234,7 @@ post_meta:
 # 站点信息的位置，例如：300px/300em/300rem/10%
 index_site_info_top:
 # top_img的高度，例如：300px/300em/300rem
-index_top_img_height:
+index_top_img_height: 
 
 # 首页的字幕
 subtitle:
@@ -234,7 +251,7 @@ subtitle:
   # 1 - hitokoto.cn
   # 2 - yijuzhan.com
   # 3 - jinrishici.com
-  source: false
+  source: 1 #false
   # 如果关闭打字机效果，字幕将只显示 sub 的第一行
   sub: 屌丝的小屋
 
@@ -895,7 +912,7 @@ blog_title_font:
 # The setting of divider icon
 hr_icon:
   enable: true
-  # The unicode value of Font Awesome icon, such as '\3423'
+  # Font Awesome 图标的 unicode 值，例如 '\3423'
   icon:
   icon_top:
 
@@ -1068,8 +1085,12 @@ pjax:
 
 # 注入 css 和脚本 （aplayer/meting）
 aplayerInject:
-  enable: false
+  enable: true 
   per_page: true
+
+
+
+
 
 
 # 弹窗
