@@ -1,37 +1,33 @@
 ---
-title: windows for docker安装halo
-date: 2025-1-24
-updated: 2025-1-24
-tags: 'docker,halo'
-categories: 教程
-keywords: 'docker,halo,windows上使用halo,本地搭建halo'
-description: windows上本地搭建halo
-top_img: 'https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png'
-comments: true
-cover: 'https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png'
-copyright_author: 柳溪斋主
-copyright_author_href: 'https://donis2.github.io'
-copyright_url: 'https://donis2.github.io/posts/a7e5c6ee.html'
 abbrlink: f887098f
-toc:
-toc_number:
-toc_style_simple:
-copyright:
-copyright_info:
-mathjax:
-katex:
-aplayer:
-highlight_shrink:
-aside:
-abcjs:
-noticeOutdate:
+abcjs: null
+aplayer: null
+aside: null
+categories:
+- 教程
+comments: true
+copyright: null
+copyright_author: 柳溪斋主
+copyright_author_href: https://donis2.github.io
+copyright_info: null
+copyright_url: https://donis2.github.io/posts/a7e5c6ee.html
+cover: https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png
+date: 2025-1-24
+description: windows上本地搭建halo
+highlight_shrink: null
+katex: null
+keywords: docker,halo,windows上使用halo,本地搭建halo
+mathjax: null
+noticeOutdate: null
+tags:
+- docker,halo
+title: windows for docker安装halo
+toc: null
+toc_number: null
+toc_style_simple: null
+top_img: https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png
+updated: '2025-02-06T20:14:35.272+08:00'
 ---
-
-
-作者: Jerry
-連結: https://butterfly.js.org/posts/dc584b87/
-來源: Butterfly
-版權屬於作者所有。商業用途請聯絡作者獲得授權，非商業用途請註明出處。
 # 安装WSL2
 
 ## 打开虚拟机平台和子系统两个选项
@@ -52,7 +48,6 @@ noticeOutdate:
 
 ### 安装
 
-
 ```cmd
 wsl --install
 ```
@@ -61,13 +56,11 @@ wsl --install
 
 ### 升级WSL2
 
-
 ```cmd
 wsl --update
 ```
 
 ### 设置默认WSL版本为WSL2
-
 
 ```cmd
 wsl --set-default-version 2
@@ -93,12 +86,11 @@ wsl --import <子系统子系统名> D:\子系统在D要存放的位置\ D:\<要
 
 `https://github.com/tech-shrimp/docker_installer/releases`
 
-假设你把`docker_desktop_installer_windows_x86_64.exe` 下载到 `D:/Edge下载/` 找个文件夹里面。
+假设你把 `docker_desktop_installer_windows_x86_64.exe` 下载到 `D:/Edge下载/` 找个文件夹里面。
 
-然后再D盘兴建文件夹`D:\Docker\docker`
+然后再D盘兴建文件夹 `D:\Docker\docker`
 
 最后再cmd中运行下面代码：
-
 
 ```cmd
 start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install --installation-dir=D:\Docker\docker
@@ -110,7 +102,7 @@ start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install 
 
 访问 [汉化包仓库](https://github.com/asxez/DockerDesktop-CN)[asxez/DockerDesktop-CN: Docker汉化 Docker中文版 Docker汉化包 DockerDesktop汉化 Docker Windows Docker MAC](https://github.com/asxez/DockerDesktop-CN)
 
-下载对应版本的汉化包，不知道版本的运行`docker version`命令，然后把汉化包名字改成`app.asar`，在把它复制粘贴到\\docker\\frontend\\resources下面的同名文件。确认替换之后，重启docker就可以汉化了。
+下载对应版本的汉化包，不知道版本的运行 `docker version`命令，然后把汉化包名字改成 `app.asar`，在把它复制粘贴到\\docker\\frontend\\resources下面的同名文件。确认替换之后，重启docker就可以汉化了。
 
 ## 改镜像源
 
@@ -121,7 +113,6 @@ start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install 
 ![](https://pic1.imgdb.cn/item/678d12a8d0e0a243d4f5b2b4.png)
 
 点击docker引擎，粘贴下面代码：
-
 
 ```json
 {
