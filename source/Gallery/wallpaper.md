@@ -2,8 +2,8 @@
 title: 壁纸
 date: 2024-12-21 19:53
 aside: false
-cover: https://pic.3gbizhi.com/uploadmark/20241218/562d4a17b82f7b1109bddc98ce5f99e3.jpg
-top_img: https://pic.3gbizhi.com/uploadmark/20241218/562d4a17b82f7b1109bddc98ce5f99e3.jpg
+cover: 
+top_img: https://pic1.imgdb.cn/item/68b2251158cb8da5c8629500.webp
 ---
 
 {% gallery %}

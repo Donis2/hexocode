@@ -15,7 +15,7 @@ random:
 limit:
   type:
   value:
-cover: https://pic.3gbizhi.com/uploadmark/20241014/01dddfc82c7fbb315e9049b12551254a.jpg
-top_img: https://pic.3gbizhi.com/uploadmark/20241014/01dddfc82c7fbb315e9049b12551254a.jpg
+cover: 
+top_img: https://pic1.imgdb.cn/item/68b2251c58cb8da5c8629507.webp
 ---
 

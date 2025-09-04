@@ -2,8 +2,8 @@
 title: 图库
 date: 2024-12-21 19:53
 type: 'gallery'
-cover: 'https://pic.imgdb.cn/item/666651995e6d1bfa05824957.jpg'
-top_img:
+cover: 
+top_img: https://pic1.imgdb.cn/item/68b2251158cb8da5c8629500.webp
 ---
 <div class="gallery-group-main">
 {% galleryGroup "壁纸" "收藏的一些壁纸" "/Gallery/wallpaper" "/Gallery/01/5.jpg" %}

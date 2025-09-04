@@ -13,7 +13,7 @@
 
 nav:
   # 导航栏 logo 图像
-  logo: https://pic.imgdb.cn/item/666c0682d9c307b7e9b601ec.png
+  logo: https://pic1.imgdb.cn/item/666c065dd9c307b7e9b569f5.webp
   display_title: true
   fixed: false # 是否固定导航栏
 
@@ -127,44 +127,44 @@ social:
 favicon: https://pic.imgdb.cn/item/666c065dd9c307b7e9b56a21.webp #/img/favicon.ico
 
 avatar:
-  img: https://pic.imgdb.cn/item/666651a55e6d1bfa05825174.jpg #/img/butterfly-icon.png
+  img: https://pic1.imgdb.cn/item/68b224de58cb8da5c86294f8.webp #/img/butterfly-icon.png
   effect: false # 头像特效：一直转圈
 
 # 禁用所有 top_img 图像
 disable_top_img: false
 
 # 如果页面的 top_img未设置，则会显示 default_top_img
-default_top_img: https://pic.3gbizhi.com/uploadmark/20241024/1aa9e4dd927131ef0da441c2683ed299.jpg
+default_top_img: https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp
 
 # 索引页的 top_img
-index_img: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
+index_img: https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951c.webp
 
 # 存档页面的 top_img
-archive_img: https://pic.3gbizhi.com/uploadmark/20241021/82f868da511af2c91917672a8f2ea9aa.jpeg
+archive_img: https://pic1.imgdb.cn/item/68b2257558cb8da5c8629520.webp
 
 
 # 注意：tag page，而不是 tags page
-tag_img: https://pic.3gbizhi.com/uploadmark/20241016/e66f0292ae83bd49b4ed30c68da47451.jpg
+tag_img: https://pic1.imgdb.cn/item/68b2257558cb8da5c862951f.webp
 
 # 标签页面的 top_img ，可设置每个标签的 top_img
 # 格式：
 # - 标签名称：xxxxx
-tag_per_img: https://pic1.imgdb.cn/item/666651b35e6d1bfa05825c3b.png
+tag_per_img: https://pic1.imgdb.cn/item/68b2254458cb8da5c862950b.webp
 
 # 注意：分类页面，而不是分类(复数)页面
-category_img: https://pic.3gbizhi.com/uploadmark/20241016/c14fccc864fe5ed45e178a6ab48b9e04.jpg
+category_img: https://pic1.imgdb.cn/item/68b2257558cb8da5c862951e.webp
 
 # 分类页面的 banner 图片，可以为每个分类设置 banner 图片
 # 格式：
 # - 类别名称：xxxxx
-category_per_img: https://file.moyublog.com/d/file/2025-01-21/18570b6de5deeaa37b0f75e12a89aff8.jpg
+category_per_img: https://pic1.imgdb.cn/item/68b2254458cb8da5c862950b.webp
 
 # 页脚的背景图
-footer_img: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
+footer_img: https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951c.webp
 
 # 网站背景
 # 可以设置为颜色或图片 url
-background: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
+background: https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951c.webp
 
 
 cover:
@@ -173,7 +173,7 @@ cover:
   aside_enable: true
   archives_enable: true
   # 未设置封面时，将显示默认封面
-  default_cover: https://pic.imgdb.cn/item/6765c34dd0e0a243d4e758d9.webp
+  default_cover: https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp
     # - xxx.jpg
 
 # 替换损坏的图像

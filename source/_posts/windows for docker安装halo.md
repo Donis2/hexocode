@@ -26,12 +26,6 @@ aside:
 abcjs:
 noticeOutdate:
 ---
-
-
-作者: Jerry
-連結: https://butterfly.js.org/posts/dc584b87/
-來源: Butterfly
-版權屬於作者所有。商業用途請聯絡作者獲得授權，非商業用途請註明出處。
 # 安装WSL2
 
 ## 打开虚拟机平台和子系统两个选项
@@ -40,13 +34,13 @@ noticeOutdate:
 
 先在任务栏搜索 `windows功能` 然后打开选项卡。
 
-![](https://pic1.imgdb.cn/item/678d12b9d0e0a243d4f5b2be.png)
+![](https://pic1.imgdb.cn/item/68b620d958cb8da5c86d9344.png)
 
 ### 2
 
 勾选下面两个选项，然后重启。
 
-![](https://pic1.imgdb.cn/item/678d12a8d0e0a243d4f5b2b3.png)
+![](https://pic1.imgdb.cn/item/68b620db58cb8da5c86d9345.png)
 
 ## 安装WSL
 
@@ -55,7 +49,6 @@ noticeOutdate:
 
 ```cmd
 wsl --install
-
 ```
 
 运行 WSL 并默认安装 Linux 的 Ubuntu 发行版所需的功能。
@@ -65,7 +58,6 @@ wsl --install
 
 ```cmd
 wsl --update
-
 ```
 
 ### 设置默认WSL版本为WSL2
@@ -73,7 +65,6 @@ wsl --update
 
 ```cmd
 wsl --set-default-version 2
-
 ```
 
 ### 把子系统转移到D盘
@@ -84,7 +75,6 @@ wsl -l -v        #查看所有安装过的子系统
 wsl --export <上一条命令查看到的子系统名字，默认是Ubuntu> D:/<要改的路径>/取个名字.tar   #（注意要写.tar后缀，这是在导出安装了的子系统）
 wsl --unregister <子系统名字>   #删除原来在c盘的子系统
 wsl --import <子系统子系统名> D:\子系统在D要存放的位置\ D:\<要改的路径>\刚刚取的名字.tar --version 2
-
 ```
 
 迁移完成
@@ -122,7 +112,7 @@ start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install 
 
 打开下面界面。
 
-![](https://pic1.imgdb.cn/item/678d12a8d0e0a243d4f5b2b4.png)
+![](https://pic1.imgdb.cn/item/68b620de58cb8da5c86d9346.png)
 
 点击docker引擎，粘贴下面代码：
 
@@ -142,7 +132,6 @@ start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install 
     "https://hub.rat.dev"
   ]
 }
-
 ```
 
 你也可以网上找其他的镜像源
@@ -158,9 +147,9 @@ start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install 
 然后打开wsl2下载的子系统的控制台，我用的kali-Linux。
 
 在下面这种Linux系统的终端里输入复制的创建halo的命令：
-![](https://pic1.imgdb.cn/item/678d12c1d0e0a243d4f5b2bf.png)
+![](https://pic1.imgdb.cn/item/68b620e258cb8da5c86d9347.png)
 
-之后你会在这个位置，访问kali-Linux->\\root\\.halo 这个目录下看见halo的相关文件。![](https://pic1.imgdb.cn/item/678d12c1d0e0a243d4f5b2c0.png)
+之后你会在这个位置，访问kali-Linux->\\root\\.halo 这个目录下看见halo的相关文件。![](https://pic1.imgdb.cn/item/68b620e558cb8da5c86d9348.png)
 
 ## windows中放‘.halo‘文件
 
@@ -170,7 +159,6 @@ start /w "" "D:\Edge下载\docker_desktop_installer_windows_x86_64.exe" install 
 
 ```cmd
 docker run -it -d --name halo -p 8090:8090 -v d:/Docker/Halo:/root/.halo2 -e JVM_OPTS="-Xmx256m -Xms256m" registry.fit2cloud.com/halo/halo:2.20
-
 ```
 
 这个命令就是让’.halo‘文件创建到‘d:/Docker/Halo’文件夹下面。效果相同。
