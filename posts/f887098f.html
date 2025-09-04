@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>windows for docker安装halo | 柳溪斋</title><meta name="author" content="柳溪斋主"><meta name="copyright" content="柳溪斋主"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="windows上本地搭建halo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows for docker安装halo">
+<meta property="og:url" content="https://donis2.github.io/posts/f887098f.html">
+<meta property="og:site_name" content="柳溪斋">
+<meta property="og:description" content="windows上本地搭建halo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png">
+<meta property="article:published_time" content="2025-01-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-24T00:00:00.000Z">
+<meta property="article:author" content="柳溪斋主">
+<meta property="article:tag" content="docker,halo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png"><link rel="shortcut icon" href="https://pic.imgdb.cn/item/666c065dd9c307b7e9b56a21.webp"><link rel="canonical" href="https://donis2.github.io/posts/f887098f.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="xxxxxxx"/><link rel="manifest" href="/img/pwa/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/img/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/pwa/16.png"/><link rel="mask-icon" href="/img/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'windows for docker安装halo',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-image: url(https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951c.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://pic1.imgdb.cn/item/68b224de58cb8da5c86294f8.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 柳溪书院</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/bookshelf/"><i class="fa-fw fas fa-book-open"></i><span> 书架</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili"></i><span> 追番</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-address-book"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://pic1.imgdb.cn/item/666c065dd9c307b7e9b569f5.webp" alt="Logo"><span class="site-name">柳溪斋</span></a><a class="nav-page-title" href="/"><span class="site-name">windows for docker安装halo</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 柳溪书院</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/bookshelf/"><i class="fa-fw fas fa-book-open"></i><span> 书架</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili"></i><span> 追番</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-address-book"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">windows for docker安装halo<a class="post-edit-link" href="https://github.com/Donis2/hexocode/tree/main/source_posts/windows for docker安装halo.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-24T00:00:00.000Z" title="发表于 2025-01-24 00:00:00">2025-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-24T00:00:00.000Z" title="更新于 2025-01-24 00:00:00">2025-01-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">778</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="安装WSL2"><a href="#安装WSL2" class="headerlink" title="安装WSL2"></a>安装WSL2</h1><h2 id="打开虚拟机平台和子系统两个选项"><a href="#打开虚拟机平台和子系统两个选项" class="headerlink" title="打开虚拟机平台和子系统两个选项"></a>打开虚拟机平台和子系统两个选项</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>先在任务栏搜索 <code>windows功能</code> 然后打开选项卡。</p>
+<p><img src="https://pic1.imgdb.cn/item/68b620d958cb8da5c86d9344.png"></p>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>勾选下面两个选项，然后重启。</p>
+<p><img src="https://pic1.imgdb.cn/item/68b620db58cb8da5c86d9345.png"></p>
+<h2 id="安装WSL"><a href="#安装WSL" class="headerlink" title="安装WSL"></a>安装WSL</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+
+<p>运行 WSL 并默认安装 Linux 的 Ubuntu 发行版所需的功能。</p>
+<h3 id="升级WSL2"><a href="#升级WSL2" class="headerlink" title="升级WSL2"></a>升级WSL2</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置默认WSL版本为WSL2"><a href="#设置默认WSL版本为WSL2" class="headerlink" title="设置默认WSL版本为WSL2"></a>设置默认WSL版本为WSL2</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --<span class="built_in">set</span>-default-version <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="把子系统转移到D盘"><a href="#把子系统转移到D盘" class="headerlink" title="把子系统转移到D盘"></a>把子系统转移到D盘</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown   #停止所有正在运行的子系统</span><br><span class="line">wsl -l -v        #查看所有安装过的子系统</span><br><span class="line">wsl --export &lt;上一条命令查看到的子系统名字，默认是Ubuntu&gt; D:/&lt;要改的路径&gt;/取个名字.tar   #（注意要写.tar后缀，这是在导出安装了的子系统）</span><br><span class="line">wsl --unregister &lt;子系统名字&gt;   #删除原来在c盘的子系统</span><br><span class="line">wsl --import &lt;子系统子系统名&gt; D:\子系统在D要存放的位置\ D:\&lt;要改的路径&gt;\刚刚取的名字.tar --version <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>迁移完成</p>
+<h1 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h1><h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><p>访问下面GitHub网站下载windows的安装包。</p>
+<p><code>https://github.com/tech-shrimp/docker_installer/releases</code></p>
+<p>假设你把<code>docker_desktop_installer_windows_x86_64.exe</code> 下载到 <code>D:/Edge下载/</code> 找个文件夹里面。</p>
+<p>然后再D盘兴建文件夹<code>D:\Docker\docker</code></p>
+<p>最后再cmd中运行下面代码：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> /w &quot;&quot; &quot;D:\Edge下载\docker_desktop_installer_windows_x86_64.exe&quot; install --installation-<span class="built_in">dir</span>=D:\Docker\docker</span><br></pre></td></tr></table></figure>
+
+<p>就开始安装docker，并且docker的安装位置在 <code>D:\Docker\docker</code>中。</p>
+<h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><p>访问 <a target="_blank" rel="noopener" href="https://github.com/asxez/DockerDesktop-CN">汉化包仓库</a><a target="_blank" rel="noopener" href="https://github.com/asxez/DockerDesktop-CN">asxez&#x2F;DockerDesktop-CN: Docker汉化 Docker中文版 Docker汉化包 DockerDesktop汉化 Docker Windows Docker MAC</a></p>
+<p>下载对应版本的汉化包，不知道版本的运行<code>docker version</code>命令，然后把汉化包名字改成<code>app.asar</code>，在把它复制粘贴到\docker\frontend\resources下面的同名文件。确认替换之后，重启docker就可以汉化了。</p>
+<h2 id="改镜像源"><a href="#改镜像源" class="headerlink" title="改镜像源"></a>改镜像源</h2><p>点击右上角齿轮设置</p>
+<p>打开下面界面。</p>
+<p><img src="https://pic1.imgdb.cn/item/68b620de58cb8da5c86d9346.png"></p>
+<p>点击docker引擎，粘贴下面代码：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;builder&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;gc&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;defaultKeepStorage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;20GB&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;experimental&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://izhmiia0.mirror.aliyuncs.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://docker.1panel.live&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://hub.rat.dev&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>你也可以网上找其他的镜像源</p>
+<p>到此，windows for docker安装完毕</p>
+<h1 id="halo搭建"><a href="#halo搭建" class="headerlink" title="halo搭建"></a>halo搭建</h1><h2 id="子系统里放’-halo’文件"><a href="#子系统里放’-halo’文件" class="headerlink" title="子系统里放’.halo’文件"></a>子系统里放’.halo’文件</h2><p>访问<a target="_blank" rel="noopener" href="https://www.halo.run/">halo官网</a>,点击‘快速开始’，点击’使用 Docker 部署‘。往下翻，复制docker创建容器命令。</p>
+<p>然后打开wsl2下载的子系统的控制台，我用的kali-Linux。</p>
+<p>在下面这种Linux系统的终端里输入复制的创建halo的命令：<br><img src="https://pic1.imgdb.cn/item/68b620e258cb8da5c86d9347.png"></p>
+<p>之后你会在这个位置，访问kali-Linux-&gt;\root\.halo 这个目录下看见halo的相关文件。<img src="https://pic1.imgdb.cn/item/68b620e558cb8da5c86d9348.png"></p>
+<h2 id="windows中放‘-halo‘文件"><a href="#windows中放‘-halo‘文件" class="headerlink" title="windows中放‘.halo‘文件"></a>windows中放‘.halo‘文件</h2><p>如果你想在D盘里面编辑’.halo’文件</p>
+<p>要修改halo创建容器命令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -d --name halo -p <span class="number">8090</span>:<span class="number">8090</span> -v d:/Docker/Halo:/root/.halo2 -e JVM_OPTS=&quot;-Xmx256m -Xms256m&quot; registry.fit2cloud.com/halo/halo:<span class="number">2</span>.<span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>这个命令就是让’.halo‘文件创建到‘d:&#x2F;Docker&#x2F;Halo’文件夹下面。效果相同。</p>
+<p>到此配置结束。</p>
+<p>访问localhost:(你创建容器命令里面设置的端口，默认8090)就可以本地使用Halo了</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://donis2.github.io">柳溪斋主</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://donis2.github.io/posts/a7e5c6ee.html">https://donis2.github.io/posts/a7e5c6ee.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://donis2.github.io" target="_blank">柳溪斋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/docker-halo/">docker,halo</a></div><div class="post-share"><div class="social-share" data-image="https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/4a17b156.html" title="Hello World"><img class="cover" src="https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a><a class="pagination-related" href="/posts/e5a5d29d.html" title="hexo笔记"><img class="cover" src="https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">hexo笔记</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://pic1.imgdb.cn/item/68b224de58cb8da5c86294f8.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">柳溪斋主</div><div class="author-info-description">一个宝藏屌丝</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Donis2"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Donis2" target="_blank" title="Github"><i class="fab fa-github" style="color: “#24292e”;"></i></a><a class="social-icon" href="mailto:liuxizhaizhu@gmail.com" target="_blank" title="电子邮件"><i class="fas fa-envelope" style="color: “#4a7dbe”;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85WSL2"><span class="toc-number">1.</span> <span class="toc-text">安装WSL2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%B9%B3%E5%8F%B0%E5%92%8C%E5%AD%90%E7%B3%BB%E7%BB%9F%E4%B8%A4%E4%B8%AA%E9%80%89%E9%A1%B9"><span class="toc-number">1.1.</span> <span class="toc-text">打开虚拟机平台和子系统两个选项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-number">1.1.1.</span> <span class="toc-text">1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-number">1.1.2.</span> <span class="toc-text">2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85WSL"><span class="toc-number">1.2.</span> <span class="toc-text">安装WSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7WSL2"><span class="toc-number">1.2.2.</span> <span class="toc-text">升级WSL2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4WSL%E7%89%88%E6%9C%AC%E4%B8%BAWSL2"><span class="toc-number">1.2.3.</span> <span class="toc-text">设置默认WSL版本为WSL2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E5%AD%90%E7%B3%BB%E7%BB%9F%E8%BD%AC%E7%A7%BB%E5%88%B0D%E7%9B%98"><span class="toc-number">1.2.4.</span> <span class="toc-text">把子系统转移到D盘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85docker"><span class="toc-number">2.</span> <span class="toc-text">安装docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%89%E5%8C%96"><span class="toc-number">2.2.</span> <span class="toc-text">汉化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-number">2.3.</span> <span class="toc-text">改镜像源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#halo%E6%90%AD%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">halo搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%B3%BB%E7%BB%9F%E9%87%8C%E6%94%BE%E2%80%99-halo%E2%80%99%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">子系统里放’.halo’文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows%E4%B8%AD%E6%94%BE%E2%80%98-halo%E2%80%98%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">windows中放‘.halo‘文件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/4a17b156.html" title="Hello World"><img src="https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/posts/4a17b156.html" title="Hello World">Hello World</a><time datetime="2025-09-04T05:00:47.020Z" title="发表于 2025-09-04 05:00:47">2025-09-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f887098f.html" title="windows for docker安装halo"><img src="https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows for docker安装halo"/></a><div class="content"><a class="title" href="/posts/f887098f.html" title="windows for docker安装halo">windows for docker安装halo</a><time datetime="2025-01-24T00:00:00.000Z" title="发表于 2025-01-24 00:00:00">2025-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e5a5d29d.html" title="hexo笔记"><img src="https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo笔记"/></a><div class="content"><a class="title" href="/posts/e5a5d29d.html" title="hexo笔记">hexo笔记</a><time datetime="2024-12-21T13:56:21.000Z" title="发表于 2024-12-21 13:56:21">2024-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/569d3440.html" title="测试"><img src="https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="测试"/></a><div class="content"><a class="title" href="/posts/569d3440.html" title="测试">测试</a><time datetime="2024-12-21T12:00:00.000Z" title="发表于 2024-12-21 12:00:00">2024-12-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951c.webp);"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By 柳溪斋主</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://donis2.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-message"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = `%%{init:{ 'theme':'${theme}'}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://hexo-comments-wheat.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="//code.tidio.co/rkuidi1dataavat5mfkeosevghhgo8ce.js" async="async"></script><script>(() => {
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    let isShow = false
+    const close = () => {
+      window.tidioChatApi.hide()
+      isShow = false
+    }
+    
+    const open = () => {
+      window.tidioChatApi.open()
+      window.tidioChatApi.show()
+      isShow = true
+    }
+
+    const onTidioChatApiReady = () => {
+      window.tidioChatApi.hide()
+      window.tidioChatApi.on("close", close)
+    }
+    if (window.tidioChatApi) {
+      window.tidioChatApi.on("ready", onTidioChatApiReady)
+    } else {
+      document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+    }
+
+    window.chatBtnFn = () => {
+      if (!window.tidioChatApi) return
+      isShow ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+      show: () => window.tidioChatApi && window.tidioChatApi.show()
+    }
+  }
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
