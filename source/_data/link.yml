@@ -1,23 +1,278 @@
-- class_name: 友情链接
-  class_desc: 那些人，那些事
+# - class_name: 友情链接
+#   class_desc: 那些人，那些事
+#   link_list:
+#     - name: Hexo
+#       link: https://hexo.io/zh-tw/
+#       avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+#       descr: 快速、简单且强大的博客框架
+
+# - class_name: 网站
+#   class_desc: 值得推荐的网站
+#   link_list:
+#     - name: Youtube
+#       link: https://www.youtube.com/
+#       avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
+#       descr: 视频网站
+#     - name: Weibo
+#       link: https://www.weibo.com/
+#       avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
+#       descr: 中国最大社交分享平台
+#     - name: Twitter
+#       link: https://twitter.com/
+#       avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
+#       descr: 社交分享平台
+
+
+
+
+
+
+
+
+
+
+- class_name: 框架
+  flink_style: flexcard
   link_list:
     - name: Hexo
+      hundredSuffix: ""
       link: https://hexo.io/zh-tw/
       avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-      descr: 快速、简单且强大的博客框架
+      descr: 快速、简单且强大的网站框架
+    - name: anzhiyu主题
+      link: https://blog.anheyu.com/
+      avatar: https://img02.anheyu.com/adminuploads/1/2022/09/15/63232b7d91d22.jpg
+      descr: 生活明朗，万物可爱
+      siteshot: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/anzhiy.cn.jpg
+    
+    - name: Mizuki Blog Theme
+      hundredSuffix: ""
+      link: https://ysqq4.github.io/
+      avatar: "https://ysqq4.github.io/images/albums/Morika/7ad4578a256b2f47057adf6882c8dc0e.gif"
+      descr: "温馨美观的博客框架"
+      siteshot: https://github.com/ysqq4/ysqq4.github.io/raw/main/README2.webp
+    - name: hao主题博客
+      hundredSuffix:
+      link: https://blog.zhheo.com/
+      avatar: "https://p.zhheo.com/BDDRvO24291281640141622573.png!cover"
+      descr: "anzhiyu、hao等著名主题的原版博客"
+      siteshot: https://github.com/zhheo/HeoWeb/raw/main/img/cover.webp
+    - name: butterfly
+      hundredSuffix: ""
+      link: https://butterfly.js.org/
+      avatar: "https://butterfly.js.org/img/btterfly-icon.png"
+      descr: "hexo大名鼎鼎的butterfly主题,hao博客基于它修改"
+      siteshot: https://camo.githubusercontent.com/cc68871282b8304bc69af7c91fed056984c3726651f96635d151cdea7f23b67e/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6a65727279633132372f43444e406d322f696d672f7468656d652d627574746572666c792d726561646d652e706e67
 
-- class_name: 网站
-  class_desc: 值得推荐的网站
+- class_name: 推荐博客
+  flink_style: flexcard
   link_list:
-    - name: Youtube
-      link: https://www.youtube.com/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
-      descr: 视频网站
-    - name: Weibo
-      link: https://www.weibo.com/
-      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
-      descr: 中国最大社交分享平台
-    - name: Twitter
-      link: https://twitter.com/
-      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
-      descr: 社交分享平台
+    - name: 安知鱼
+      hundredSuffix: ""
+      link: https://blog.anheyu.com/
+      avatar: https://img02.anheyu.com/adminuploads/1/2022/09/15/63232b7d91d22.jpg
+      descr: 生活明朗，万物可爱
+      siteshot: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/anzhiy.cn.jpg
+    - name: 柳溪斋 - 屌丝的小窝
+      hundredSuffix: ""
+      link: https://donis2.github.io/
+      avatar: "https://pic1.imgdb.cn/item/68b224de58cb8da5c86294f7.webp"
+      descr: "柳溪斋主的另一个博客"
+      siteshot: https://pic1.imgdb.cn/item/68b2254458cb8da5c862950c.webp
+
+- class_name: 小伙伴
+  class_desc: 那些人，那些事
+  flink_style: anzhiyu
+  link_list:
+    - name: POETIZE - 最美博客
+      hundredSuffix: "177"
+      link: https://poetize.cn/
+      avatar: "https://tse3-mm.cn.bing.net/th/id/OIP-C.sdCYrjajeSPXgKw5IcoIwAHaEV?w=294&h=180&c=7&r=0&o=5&cb=thfc1&dpr=1.3&pid=1.7"
+      descr: "确实是挺好看的"
+
+    - name: butterfly
+      hundredSuffix: ""
+      link: https://butterfly.js.org/
+      avatar: "https://butterfly.js.org/img/butterfly-icon.png"
+      descr: "hexo大名鼎鼎的butterfly主题,hao博客基于它修改"
+
+    - name: 小橙子
+      hundredSuffix: ""
+      link: https://anorange.icu/
+      avatar: "https://cdn.anorange.icu/anorange/%E6%9F%BF%E5%AD%90.png"
+      descr: "在橙光里，收集人间小确幸"
+
+    - name: 安知鱼 - 生活明朗 万物可爱
+      hundredSuffix: ""
+      link: https://blog.anheyu.com/
+      avatar: "https://img02.anheyu.com/adminuploads/1/2022/09/15/63232b7d91d22.jpg"
+      descr: "鱼佬的博客"
+
+    - name: 【收藏记录】Hao主题标签 | 小小笔记大大用处
+      hundredSuffix: ""
+      link: https://blog.uptoz.cn/
+      avatar: "https://img.uptoz.cn/img/18a0d06040d4744c3c80751b28982bc6.gif"
+      descr: "挺好的hao主题博客"
+
+    - name: WordPress - 小羿
+      hundredSuffix: ""
+      link: https://xiaoyi.vc/
+      avatar: "https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp"
+      descr: "一个综合的站点,有好多教程和软件推荐,还有wordpress开发教程"
+    
+    - name: 柳溪斋 - 屌丝的小窝
+      hundredSuffix: ""
+      link: https://donis2.github.io/
+      avatar: "https://pic1.imgdb.cn/item/68b224de58cb8da5c86294f7.webp"
+      descr: "柳溪斋主的另一个博客"
+
+    - name: Carol 小屋
+      hundredSuffix: ""
+      link: https://blog.xindu.site/
+      avatar: "https://api.minio.xindu.site/blog.cnkj.site/backup/logo-doiw.png"
+      descr: "挺牛逼的hao主题博客-有不少有用的教程"
+
+    - name: Mosu
+      hundredSuffix: ""
+      link: https://mosuzi.com/
+      avatar: "https://mosuzi.com/assets/img/logo.png"
+      descr: "一个butterfly博客"
+
+    - name: 心月云
+      hundredSuffix: ""
+      link: https://wch666.com/
+      avatar: "https://wch666.com/head.png"
+      descr: "葬爱温少-博客挺简洁干净的"
+    
+    - name: Mavis_Blog
+      hundredSuffix: ""
+      link: http://mavis01.top:88/
+      avatar: "http://cdn.maple01.top/userAvatar/mavis21712812755376930.jpg"
+      descr: "一个最美博客框架搭建的"
+
+    - name: 技术松鼠 - 学习，让视野更宽阔！
+      hundredSuffix: ""
+      link: https://www.jishusongshu.com/
+      avatar: "https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp"
+      descr: "技术松鼠-综合型教程博客"
+
+    - name: 个人主页网 - 个人主页源码分享下载 - 免费获取各类个人网站模板
+      hundredSuffix: ""
+      link: https://www.gerenzhuye.com/
+      avatar: "https://www.gerenzhuye.com/static/webAvatar/feiyu11744350120634393.avif"
+      descr: "一个基于最美博客系统的博客"
+
+    - name: 宇阳 - 花有重开日, 人无再少年
+      hundredSuffix: ""
+      link: https://liuyuyang.net/
+      avatar: "https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640"
+      descr: "由这个博主自己开发的ThriveX博客框架搭建"
+
+    - name: 张洪Heo - 分享设计与科技生活
+      hundredSuffix: ""
+      link: https://blog.zhheo.com/
+      avatar: "https://p.zhheo.com/BDDRvO24291281640141622573.png!cover"
+      descr: "洪哥-不用多说"
+
+    - name: Win11 下基于 WSL2 安装 kali-linux子系统完全指南 - 爆胎了
+      hundredSuffix: ""
+      link: https://tiax.cn/
+      avatar: "https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp"
+      descr: "很极简的一款博客"
+
+    - name: 阿锦在线
+      hundredSuffix: ""
+      link: https://www.ajinol.com/tools
+      avatar: "https://www.ajinol.com/upload/logo.png"
+      descr: "一款hao主题博客-有不少教程"
+
+    - name: Shu_HowZ
+      hundredSuffix: ""
+      link: https://www.cnblogs.com/zhangshuhao1116
+      avatar: "https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp"
+      descr: "这尼玛是博客园写出来的？？？"
+
+    - name: Lor1keet - 小站
+      hundredSuffix: ""
+      link: https://lor1keet.github.io/
+      avatar: "https://pic.imgdb.cn/item/66ec4138f21886ccc0240e23.jpg"
+      descr: "正常的butterfly主题博客"
+
+    - name: 璜珀的小屋 - 记录自己的摆烂日常与学习记录
+      hundredSuffix: ""
+      link: https://blog.hpcesia.com/
+      avatar: "https://blog.hpcesia.com/assets/img/avatar.webp"
+      descr: "温馨小屋"
+
+    - name: 白衣INK
+      hundredSuffix: ""
+      link: https://baiyi.ink/posts/4aa52aa9.html
+      avatar: "https://thirdqq.qlogo.cn/g?b=qq&nk=2766521276&s=640"
+      descr: "一个hao主题博客,有情侣纪念日页面教程"
+
+    - name: lookroot的个人空间
+      hundredSuffix: ""
+      link: https://www.lookroot.cn/notes
+      avatar: "https://file.lookroot.cn/2022/12/20221229235927logo999.jpg"
+      descr: "极简！！！"
+
+    - name: halo 插件文档
+      hundredSuffix: ""
+      link: https://www.yuque.com/handsome125/halo-plugins/
+      avatar: "https://www.halo.run/logo"
+      descr: "halo 插件文档"
+      
+    - name: GB 的记事簿 - 热爱生活
+      hundredSuffix: ""
+      link: https://blog.gbfun.cc/
+      avatar: "https://image-head.gbfun.cc///imgimage-20250824154252109.webp?blog-image?"
+      descr: "hao主题博客,hexo搭建"
+      
+    - name: Mo的记事簿
+      hundredSuffix: ""
+      link: https://blog.xiowo.net/posts/anzhiyu/#%E5%85%B6%E4%BB%96%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E5%8F%8A%E7%BE%8E%E5%8C%96
+      avatar: "https://blog.xiowo.net/img/avatar.png"
+      descr: "anzhiyu主题的大名鼎鼎美化库"
+
+    - name: 琅環书生 - 无远弗届 皆有可能
+      hundredSuffix: ""
+      link: https://chn.us.kg/
+      avatar: "https://chn.us.kg/img/zz.jpg"
+      descr: "清新柔美的anzhiyu主题博客"
+
+    - name: 琅環书生 - 无远弗届 皆有可能
+      hundredSuffix:
+      link: https://blog.chn.us.kg/
+      avatar: "https://chn.us.kg/img/zz.jpg"
+      descr: "为什么他会有两个博客"
+
+    - name: 前尘小筑 - 虽多尘色染，犹见墨痕浓
+      hundredSuffix: ""
+      link: https://mnchen.cn/
+      avatar: "https://image.mnchen.cn/%E6%98%9F%E5%B0%98.png"
+      descr: "anzhiyu主题-有些有用的教程"
+
+    - name: 阿呆的博客 - 生活如此多娇
+      hundredSuffix: ""
+      link: https://www.adai.fun/
+      avatar: "https://www.adai.fun/img/adai.png"
+      descr: "简约的anzhiyu主题"
+
+    - name: LiuShen's Blog - 清羽飞扬
+      hundredSuffix: ""
+      link: https://blog.liushen.fun/
+      avatar: "https://blog.liushen.fun/info/avatar.ico"
+      descr: "柳神博客"
+
+    
+    - name: 妹妹天下第一 - mmtxdy
+      hundredSuffix: ""
+      link: https://ysqq4.github.io/
+      avatar: "https://ysqq4.github.io/images/albums/Morika/7ad4578a256b2f47057adf6882c8dc0e.gif"
+      descr: "大佬自己的Mizuki Blog Theme博客框架"
+
+    - name: 萤火之森 - 知识传承之地
+      hundredSuffix: ""
+      link: https://frankorz.com/
+      avatar: "https://cdn.jsdelivr.net/gh/latias94/blog-images@main/top/frankorz/blog/imgshead.png"
+      descr: "butterfly主题的博客"

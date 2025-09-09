@@ -35,7 +35,6 @@ menu:
   清单||fa fa-heartbeat:
     追番: /list/bilibili/ || fab fa-bilibili
     音乐: /list/music/ || fas fa-music
-    电影: /list/movies/ || fas fa-video
 
   友人帐: /link/ || fas fa-address-book
   关于: /about/ || fas fa-user-circle

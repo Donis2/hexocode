@@ -7,11 +7,11 @@ top_img: https://pic1.imgdb.cn/item/68b2257558cb8da5c862951d.webp
 ---
 
 {% gallery %}
-![](02/1.jpg)
-![](02/2.jpg)
-![](02/3.jpg)
-![](02/4.jpg)
-![](02/5.jpg)
-![](02/6.jpg)
+![](01/1.jpg)
+![](01/2.jpg)
+![](01/3.jpg)
+![](01/4.jpg)
+![](01/5.jpg)
+![](01/6.jpg)
 {% endgallery %}
 
