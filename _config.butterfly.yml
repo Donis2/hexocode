@@ -72,6 +72,7 @@ inject:
     # 例如添加 ?1 ,在修改此文件后改成 ?2 ,用户访问你的网站时,不会使用本地的缓存,而是请求新的内容。没修改的话就不用动。
   bottom:
     - <script src="/Inject/JS/my.js?1"></script>
+
     # 自定义js
     # - <script src="/js/script.js?1"></script>
     # 引入多个文件就直接往下复制一行改一下文件名即可，如下：

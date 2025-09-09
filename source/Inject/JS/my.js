@@ -49,3 +49,9 @@ function switchPostChart () {
 document.getElementById("mode-button").addEventListener("click", function () { setTimeout(switchPostChart, 100) })
 
 // ================================== 统计图适配明暗 =================================
+
+
+
+
+
+

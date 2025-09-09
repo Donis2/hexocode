@@ -29,4 +29,13 @@ git push -u origin main
 
 ```
 
+----
 
+butterfly 5.5.0
+
+hexo: 7.3.0
+hexo-cli: 4.3.2
+
+node: 22.12.0
+
+插件更新方法: https://blog.zhheo.com/p/6d1f1f98.html
