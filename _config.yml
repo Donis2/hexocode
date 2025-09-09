@@ -162,7 +162,7 @@ theme: butterfly #solitude # landscape
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Donis2/hexocode.git # 上传到github的hexocode仓库用这个
+  # repo: https://github.com/Donis2/hexocode.git # 上传到github的hexocode仓库用这个
   # repo: git@github.com:Donis2/donis2.github.io.git   # 本地 hexo d 用这个(ssh协议)
-  # repo: git@github.com-donis:Donis2/donis2.github.io.git # 使用3277006245的git上传这个仓库到2561055937的库
+  repo: https://github.com/Donis2/donis2.github.io.git # 使用3277006245的git上传这个仓库到2561055937的库
   branch: main
