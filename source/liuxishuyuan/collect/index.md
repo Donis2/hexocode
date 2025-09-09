@@ -2,13 +2,13 @@
 title: 书架
 date: 2025-01-25
 updated: 2025-01-25
-type: 
+type: 'collect'
 comments: 
 description:
 keywords: 柳溪书架
 mathjax:
 katex:
-aside:
+aside: false
 aplayer:
 highlight_shrink:
 random:

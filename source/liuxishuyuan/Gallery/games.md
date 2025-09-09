@@ -2,8 +2,8 @@
 title: 游戏图片
 date: 2024-12-21 19:53
 aside: false
-cover: 
-top_img: https://pic1.imgdb.cn/item/68b2251158cb8da5c8629500.webp
+cover: https://pic1.imgdb.cn/item/68b2257558cb8da5c862951d.webp
+top_img: https://pic1.imgdb.cn/item/68b2257558cb8da5c862951d.webp
 ---
 
 {% gallery %}

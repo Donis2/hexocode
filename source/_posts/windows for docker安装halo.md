@@ -2,7 +2,10 @@
 title: windows for docker安装halo
 date: 2025-1-24
 updated: 2025-1-24
-tags: 'docker,halo'
+id: 01
+tags: 
+  - docker
+  - halo
 categories: 教程
 keywords: 'docker,halo,windows上使用halo,本地搭建halo'
 description: windows上本地搭建halo
@@ -12,7 +15,6 @@ cover: 'https://picst.sunbangyan.cn/2023/10/28/ce063a2266dc8745d0c1ee0060f444bc.
 copyright_author: 柳溪斋主
 copyright_author_href: 'https://donis2.github.io'
 copyright_url: 'https://donis2.github.io/posts/a7e5c6ee.html'
-abbrlink: f887098f
 toc:
 toc_number:
 toc_style_simple:

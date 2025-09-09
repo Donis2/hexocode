@@ -13,25 +13,30 @@
 
 nav:
   # 导航栏 logo 图像
-  logo: https://pic1.imgdb.cn/item/666c065dd9c307b7e9b569f5.webp
+  logo: https://pic1.imgdb.cn/item/68b224de58cb8da5c86294f6.webp
   display_title: true
   fixed: false # 是否固定导航栏
 
 
 menu:
   首页: / || fas fa-home
-  时间轴: /archives/ || fas fa-archive
-  标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
+  时间轴: /timeline/ || fas fa-hourglass-half
+  文章||fas fa-list:
+    归档: /articles/archives/ || fas fa-archive
+    标签: /articles/tags/ || fas fa-tags
+    分类: /articles/categories/ || fas fa-folder-open
+    统计: /articles/charts/ || fas fa-chart-bar
 
   柳溪书院||fas fa-book:
-    照片: /Gallery/ || fas fa-images
-    书架: /bookshelf/ || fas fa-book-open
- 
+    照片: /liuxishuyuan/Gallery/ || fas fa-images
+    书架: /liuxishuyuan/collect/ || fas fa-book-open
+    说说: /liuxishuyuan/shuoshuo/ || fas fa-comment-dots
+
   清单||fa fa-heartbeat:
-    追番: /bilibili/ || iconfont icon-bilibili
-    音乐: /music/ || fas fa-music
-    电影: /movies/ || fas fa-video
+    追番: /list/bilibili/ || fab fa-bilibili
+    音乐: /list/music/ || fas fa-music
+    电影: /list/movies/ || fas fa-video
+
   友人帐: /link/ || fas fa-address-book
   关于: /about/ || fas fa-user-circle
 
@@ -60,16 +65,32 @@ menu:
 # 将代码插入头部（在 '</head>' 标签之前）和底部（在 '</body>' 标签之前）
 inject:
   head:
+    - <link rel="stylesheet" href="/Inject/CSS/my.css?1">
+    - <script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script> # 统计图功能
     # 自定义css
     # - <link rel="stylesheet" href="/css/style.css?1">
     # 静态文件后面加个  ?任意内容  可以在每次更新之后用户自动重新请求.
     # 例如添加 ?1 ,在修改此文件后改成 ?2 ,用户访问你的网站时,不会使用本地的缓存,而是请求新的内容。没修改的话就不用动。
   bottom:
+    - <script src="/Inject/JS/my.js?1"></script>
     # 自定义js
     # - <script src="/js/script.js?1"></script>
     # 引入多个文件就直接往下复制一行改一下文件名即可，如下：
     # - <script src="/js/script1.js?1"></script>
     # - <script src="/js/script2.js?1"></script>
+
+    # 全局音乐教程：https://iknew.cn/2024/07/01/hexo-butterfly%E4%BD%BF%E7%94%A8hexo-tag-aplayer-%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/
+    - <div class="aplayer no-destroy" data-id="4939918079" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" data-lrcType="-1"> </div>
+
+    # 这个应该不能像下面分开写，只能写成一行，下面分开写是方便看参数
+    # - <div class="aplayer no-destroy" 
+    #   data-id="4939918079" # 歌单id
+    #   data-server="netease" # 歌单来源平台
+    #   data-type="playlist" # 歌单类型
+    #   data-fixed="true" 
+    #   data-autoplay="true" 
+    #   data-lrcType="-1"> 
+    #   </div>
 
 
 
@@ -124,7 +145,7 @@ social:
 # 图像设置
 # --------------------------------------
 
-favicon: https://pic.imgdb.cn/item/666c065dd9c307b7e9b56a21.webp #/img/favicon.ico
+favicon: https://pic1.imgdb.cn/item/68b224de58cb8da5c86294f7.webp #/img/favicon.ico
 
 avatar:
   img: https://pic1.imgdb.cn/item/68b224de58cb8da5c86294f8.webp #/img/butterfly-icon.png
@@ -144,23 +165,23 @@ archive_img: https://pic1.imgdb.cn/item/68b2257558cb8da5c8629520.webp
 
 
 # 注意：tag page，而不是 tags page
-tag_img: https://pic1.imgdb.cn/item/68b2257558cb8da5c862951f.webp
+tag_img: https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951b.webp
 
 # 标签页面的 top_img ，可设置每个标签的 top_img
 # 格式：
 # - 标签名称：xxxxx
-tag_per_img: https://pic1.imgdb.cn/item/68b2254458cb8da5c862950b.webp
+tag_per_img: https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951b.webp
 
 # 注意：分类页面，而不是分类(复数)页面
-category_img: https://pic1.imgdb.cn/item/68b2257558cb8da5c862951e.webp
+category_img: https://pic1.imgdb.cn/item/68b2251c58cb8da5c8629507.webp
 
 # 分类页面的 banner 图片，可以为每个分类设置 banner 图片
 # 格式：
 # - 类别名称：xxxxx
-category_per_img: https://pic1.imgdb.cn/item/68b2254458cb8da5c862950b.webp
+category_per_img: https://pic1.imgdb.cn/item/68b2251c58cb8da5c8629507.webp
 
 # 页脚的背景图
-footer_img: https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951c.webp
+footer_img: transparent # transparent透明  # https://pic1.imgdb.cn/item/68b2256e58cb8da5c862951c.webp
 
 # 网站背景
 # 可以设置为颜色或图片 url
@@ -173,7 +194,7 @@ cover:
   aside_enable: true
   archives_enable: true
   # 未设置封面时，将显示默认封面
-  default_cover: https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp
+  default_cover: https://pic1.imgdb.cn/item/666651c85e6d1bfa05826df9.jpg
     # - xxx.jpg
 
 # 替换损坏的图像
@@ -217,7 +238,7 @@ post_meta:
 # 站点信息的位置，例如：300px/300em/300rem/10%
 index_site_info_top:
 # top_img的高度，例如：300px/300em/300rem
-index_top_img_height:
+index_top_img_height: 
 
 # 首页的字幕
 subtitle:
@@ -234,9 +255,14 @@ subtitle:
   # 1 - hitokoto.cn
   # 2 - yijuzhan.com
   # 3 - jinrishici.com
-  source: false
+  source: 1 #false
   # 如果关闭打字机效果，字幕将只显示 sub 的第一行
-  sub: 屌丝的小屋
+  sub: 
+    - 屌丝的小屋
+    - 朝饮木兰之坠露兮，夕餐秋菊之落英。
+    - 天地不仁,以万物为刍狗。
+    - 父母之年，不可不知也。一则以喜，一则以惧。
+    - 闲时与你立黄昏,灶前笑问粥可温。
 
 # 主页上的文章布局
 # 1：封面在左边，信息在右边
@@ -331,7 +357,7 @@ footer:
   owner:
     enable: true
     since: 2024
-  custom_text: Hi, welcome to my <a href="https://donis2.github.io/">blog</a>!
+  custom_text: Hi, welcome to <a href="https://donis2.github.io/">柳溪斋</a>!
   # 主题和框架的版权
   copyright: true
 
@@ -848,7 +874,7 @@ rounded_corners_ui: true
 # 拉伸线条，使每条线条的宽度相等
 text_align_justify: false
 
-# 向页眉和页脚添加掩码
+# 向页眉和页脚添加蒙版效果
 mask:
   header: true
   footer: true
@@ -863,8 +889,8 @@ preloader:
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url:
 
-# 页面过渡
-enter_transitions: true
+# 页面过渡  关闭，不然会有白色渐变效果
+enter_transitions: false
 
 # Default display mode - light (default) / dark
 display_mode: light
@@ -895,7 +921,7 @@ blog_title_font:
 # The setting of divider icon
 hr_icon:
   enable: true
-  # The unicode value of Font Awesome icon, such as '\3423'
+  # Font Awesome 图标的 unicode 值，例如 '\3423'
   icon:
   icon_top:
 
@@ -1068,8 +1094,12 @@ pjax:
 
 # 注入 css 和脚本 （aplayer/meting）
 aplayerInject:
-  enable: false
+  enable: true 
   per_page: true
+
+
+
+
 
 
 # 弹窗
@@ -1092,7 +1122,7 @@ instantpage: true
 # https://github.com/verlok/vanilla-lazyload
 lazyload:
   enable: false
-  # Specify the field to use lazyload (site or post)
+  # 指定要使用的字段 lazyload （site 或 post）
   field: site
   placeholder:
   blur: false

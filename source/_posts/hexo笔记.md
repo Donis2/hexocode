@@ -1,13 +1,13 @@
 ---
-abbrlink: e5a5d29d
+title: hexo笔记
+id: 02
 categories:
   - 测试
 date: '2024-12-21T21:56:21+08:00'
 tags:
   - 测试
-title: hexo笔记
 updated: '2024-12-22T15:05:27.110+08:00'
-cover: 
+cover: https://pic1.imgdb.cn/item/68b2255758cb8da5c8629511.webp
 ---
 
 测试看看
