@@ -31,21 +31,6 @@ git push -u origin main
 
 
 Personal Access Token：
-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
+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
 这个token用来让3277006245@qq.com的git账号可以操作2561055937(Donis2)的仓库
 
-
-
-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
-
-
-
-
-GitHubActions 
-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
-
-
-
-
-GitHubAction-qexo 
-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
