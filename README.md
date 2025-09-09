@@ -30,7 +30,3 @@ git push -u origin main
 ```
 
 
-Personal Access Token：
-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
-这个token用来让3277006245@qq.com的git账号可以操作2561055937(Donis2)的仓库
-
